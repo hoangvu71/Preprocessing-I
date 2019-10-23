@@ -49,11 +49,155 @@ table {
 }
 
 /* Set every element's box-sizing to border-box */
+@main-text-color: rgb(46, 45, 45);
+@border-color: red;
+
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 62.5%;		
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
+	color: @main-text-color;
 }
+
+.main_container{
+	width: 60vw;
+	margin: 0 auto;
+}
+.flexing{
+	display:flex;
+	flex-direction: row-reverse;
+}
+
+.container_nav{
+	.flexing();
+	nav{
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		a{
+			font-size: 1.3rem;
+			text-decoration: none;
+			color: @main-text-color;
+			margin: 1rem;
+		}
+	}
+}
+
+.top_section{
+	height: 84vh;
+	background-color: rgb(233, 236, 239);
+	.top_image{
+		img{
+			width: 20vw;
+			height: auto;
+			margin-left: 2rem;
+			margin-top: 1.7rem;
+			margin-bottom: 1rem;
+		}
+	}
+	h1{
+		font-size: 4rem;
+		margin-left: 2rem;
+	}
+	p{
+		margin-left: 2rem;
+		margin-top: 1rem;
+	}
+	.divider{
+		border: 1px dashed rgb(202, 201, 201);
+		width: 80%;
+		margin: 0 auto;
+		margin-top: 1.7rem;
+	}
+	.second_p{
+		font-size: 1.2rem;
+	}
+	.hire_me{
+		width: 9rem;
+		height: 3rem;
+		padding-top: 0.8rem;
+		text-align: center;
+		margin-left: 2rem;
+		margin-top: 1.5rem;
+		background-color: rgb(128, 128, 128);
+		font-size: 1.4rem;
+		color: rgb(243, 242, 242);
+	}
+}
+
+.middle_section{
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: row;
+	.listen_up{
+		width: 45%;
+		margin-right: 5%;
+		h3{
+			font-size: 1.8rem;
+			margin-bottom: 1.5rem;
+		}
+		p{
+			line-height: 1.3rem;
+			font-size: 1.1rem;
+		}
+	}
+	.stuff_im_good{
+		width: 45%;
+		h3{
+			font-size: 1.8rem;
+			margin-bottom: 1.5rem;
+		}
+		ul{
+			li{
+				border: 1px solid @border-color;
+				border-bottom: none;
+				width: 100%;
+				height: 2.3rem;
+				font-size: 1.2rem;
+				padding-top: 0.7rem;
+				padding-left: 1rem;
+			}
+			li:last-child{
+				border-bottom: 1px solid rgb(231,231,231);
+			}
+		}
+	}
+}
+
+.bottom_section{
+	h3{
+		font-size: 1.8rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	.top_table{
+		display: flex;
+		flex-direction: row;
+		border-top: 1px solid rgb(212, 209, 209);
+		div{
+			margin-top: 1rem;
+			font-size: 1.1rem;
+			font-weight: bold;
+		}
+
+		.column_one{
+			margin-left: 1rem;
+			margin-right: 8rem;
+		}
+
+		.column_two{
+			margin-right: 14rem;
+		}
+
+		.column_three{
+			margin-right: 14rem;
+		}
+	}
+
+}
+
+
+
 
