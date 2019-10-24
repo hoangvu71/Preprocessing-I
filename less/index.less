@@ -138,6 +138,16 @@ table {
 /* Set every element's box-sizing to border-box */
 @main-text-color: rgb(46, 45, 45);
 @border-color: rgb(179, 179, 179);
+@mobile: ~'(max-width: 500px)';
+
+.flex-display(@direction){
+	display: flex;
+	flex-direction: @direction;
+}
+.height-width(@h, @w){
+	height: @h;
+	width: @w;
+}
 
 * {
     box-sizing: border-box;
@@ -147,46 +157,59 @@ table {
 html,
 body {
     height: 100%;
-    color: @main-text-color;
+	color: @main-text-color;
 }
 
 .main_container {
     width: 60vw;
-    margin: 0 auto;
-}
-
-.flexing {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.container_nav {
-    .flexing();
-
-    nav {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-
-        a {
-            font-size: 1.3rem;
-            text-decoration: none;
-            color: @main-text-color;
-            margin: 1rem;
+	margin: 0 auto;
+	@media @mobile{
+		width: 90vw;
+    }
+    header{
+        .container_nav {
+            .flex-display(row-reverse);
+            }
+            nav {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                @media @mobile{
+                    .flex-display(column);
+                    margin: 0 auto;
+                }
+                a {
+                    font-size: 1.3rem;
+                    color: @main-text-color;
+                    margin: 1rem;
+                    text-decoration: none;
+                    @media @mobile{
+                        font-size: 2rem;
+                    }
+                }
+            }
         }
     }
-}
+
+
+
+
 
 .top_section {
-    height: 84vh;
+	height: 84vh;
+	@media @mobile{
+		height: 55vh;
+	}
     background-color: rgb(233, 236, 239);
 
     .top_image {
         img {
-            width: 20vw;
-            height: auto;
+			.height-width(auto, 20vw);
             margin-left: 2rem;
             margin-top: 1.7rem;
-            margin-bottom: 1rem;
+			margin-bottom: 1rem;
+			@media @mobile{
+				display: none;
+			}
         }
     }
 
@@ -212,26 +235,30 @@ body {
     }
 
     .hire_me {
-        width: 9rem;
-        height: 3rem;
+		.height-width(3rem, 9rem);
         padding-top: 0.8rem;
         text-align: center;
         margin-left: 2rem;
         margin-top: 1.5rem;
-        background-color: rgb(128, 128, 128);
+        background-color: @border-color;
         font-size: 1.4rem;
         color: rgb(243, 242, 242);
     }
 }
 
 .middle_section {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-
+	margin-top: 2rem;
+	.flex-display(row);
+	@media @mobile{
+		.flex-display(column);
+	}
     .listen_up {
         width: 45%;
-        margin-right: 5%;
+		margin-right: 5%;
+		@media @mobile{
+			width: 90%;
+			margin-bottom: 2rem;
+		}
 
         h3 {
             font-size: 1.8rem;
@@ -254,17 +281,16 @@ body {
 
         ul {
             li {
-                border: 1px solid rgb(231, 231, 231);
-                border-bottom: none;
-                width: 100%;
-                height: 2.3rem;
+                border: 1px solid @border-color;
+				border-bottom: none;
+				.height-width(2.3rem,100%);
                 font-size: 1.2rem;
                 padding-top: 0.7rem;
                 padding-left: 1rem;
             }
 
             li:last-child {
-                border-bottom: 1px solid rgb(231, 231, 231);
+                border-bottom: 1px solid @border-color;
             }
         }
     }
@@ -278,9 +304,8 @@ body {
     }
 
     .top_table {
-        display: flex;
-        flex-direction: row;
-		border-top: 1px solid rgb(212, 209, 209);
+        .flex-display(row);
+		border-top: 1px solid @border-color;
 		align-items: center;
 		height:3rem;
 
@@ -306,9 +331,8 @@ body {
 }
 
 .second_row {
-    display: flex;
-	flex-direction: row;
-	background-color:rgb(233, 236, 239);
+    .flex-display(row);
+	background-color:@border-color;
 	height: 2.7rem;
 	align-items: center;
 	.column_one {
@@ -326,8 +350,7 @@ body {
 }
 
 .third_row {
-    display: flex;
-	flex-direction: row;
+    .flex-display(row);
 	height: 2.7rem;
 	align-items: center;
 	.column_one {
@@ -345,11 +368,10 @@ body {
 }
 
 .fourth_row {
-    display: flex;
-	flex-direction: row;
+   .flex-display(row);
 	height: 2.7rem;
 	align-items: center;
-	background: rgb(233, 236, 239);
+	background: @border-color;
 	.column_one {
 		margin-left: 1.4rem;
 		margin-right: 9rem;
@@ -367,9 +389,8 @@ body {
 .copyright{
 	text-align: center;
 	margin-top: 2rem;
-	background-color: rgb(206, 207, 207);
-	height: 3rem;
-	width: 100%;
+	background-color: @border-color;
+	.height-width(3rem,100%);
 	display: flex;
 	justify-content: center;
 	margin: 0 auto;
